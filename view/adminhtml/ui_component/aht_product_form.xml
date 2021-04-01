@@ -23,6 +23,7 @@
             <button name="save" class="AHT\Product\Block\Adminhtml\Product\Edit\SaveButton"/>
             <!-- <button name="reset" class="AHT\Product\Block\Adminhtml\Product\Edit\ResetButton"/> -->
             <button name="back" class="AHT\Product\Block\Adminhtml\Product\Edit\BackButton"/>
+            <button name="delete" class="AHT\Product\Block\Adminhtml\Product\Edit\DeleteButton"/>
         </buttons>
         <namespace>aht_product_form</namespace>
         <dataScope>data</dataScope>

@@ -10,7 +10,7 @@ use Magento\Ui\Component\Control\Container;
 
 /**
  * Class SaveButton
- * @package Magento\Customer\Block\Adminhtml\Edit
+ * @package AHT\Product\Block\Adminhtml\Product\Edit
  */
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {
@@ -30,10 +30,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
                                 'targetName' => 'aht_product_form.aht_product_form',
                                 'actionName' => 'save',
                                 'params' => [
-                                    true,
-                                    [
-                                        'back' => 'continue'
-                                    ]
+                                    false
                                 ]
                             ]
                         ]
@@ -42,6 +39,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
             ],
             'class_name' => Container::SPLIT_BUTTON,
             'options' => $this->getOptions(),
+            'sort_order' => 90,
         ];
     }
 
@@ -73,7 +71,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
                             ]
                         ]
                     ]
-                ]
+                ],
             ],
             [
                 'id_hard' => 'save_and_close',
@@ -86,16 +84,13 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
                                     'targetName' => 'aht_product_form.aht_product_form',
                                     'actionName' => 'save',
                                     'params' => [
-                                        true,
-                                        [
-                                            'back' => 'close'
-                                        ]
+                                        true
                                     ]
                                 ]
                             ]
                         ]
                     ]
-                ]
+                ],
             ]
         ];
 

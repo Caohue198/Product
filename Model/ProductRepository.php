@@ -90,7 +90,7 @@ class ProductRepository implements ProductRepositoryInterface
         $Post = $this->PostFactory->create();
         $Post->load($postId);
         if (!$Post->getId()) {
-            throw new NoSuchEntityException(__('The CMS Post with the "%1" ID doesn\'t exist.', $PostId));
+            throw new NoSuchEntityException(__('The CMS Post with the "%1" ID doesn\'t exist.', $postId));
         }
         $result = $Post;
         return $result;

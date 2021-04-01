@@ -34,6 +34,21 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
             );
         } 
+
+        if (version_compare($context->getVersion(), '1.0.3', '<')) {
+            $setup->getConnection()->addColumn(
+                $setup->getTable('aht_product'),
+                'content',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => 100,
+                    'nullable' => false,
+                    'default' => '',
+                    'comment' => 'content'
+                ]
+
+            );
+        } 
        
         $setup->endSetup();
     }

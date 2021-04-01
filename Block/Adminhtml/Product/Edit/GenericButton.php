@@ -1,10 +1,17 @@
 <?php
-
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 namespace AHT\Product\Block\Adminhtml\Product\Edit;
 
 use Magento\Backend\Block\Widget\Context;
+use AHT\Product\Api\ProductRepositoryInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 
+/**
+ * Class GenericButton
+ */
 class GenericButton
 {
     /**
@@ -13,31 +20,36 @@ class GenericButton
     protected $context;
 
     /**
+     * @var ProductRepositoryInterface
      */
-    protected $authorRepository;
+    protected $productRepository;
 
     /**
      * @param Context $context
+     * @param ProductRepositoryInterface $productRepository
      */
     public function __construct(
-        Context $context
+        Context $context,
+        ProductRepositoryInterface $productRepository
     ) {
         $this->context = $context;
-   
+        $this->productRepository = $productRepository;
     }
 
     /**
-     * Return Author page ID
+     * Return CMS page ID
      *
      * @return int|null
      */
     public function getProductId()
     {
         try {
-            return  $this->context->getRequest()->getParam('id');
+            return $this->productRepository->getById(
+                $this->context->getRequest()->getParam('id')
+            )->getId();
         } catch (NoSuchEntityException $e) {
-            return null;
         }
+        return null;
     }
 
     /**
