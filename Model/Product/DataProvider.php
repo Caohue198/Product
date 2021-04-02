@@ -62,7 +62,23 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data, $pool);
     }
 
-    
+    public function convertValues($banner)
+    {
+        $fileName = $banner->getImages();
+        $image = [];
+        if ($this->getFileInfo()->isExist($fileName)) {
+            $stat = $this->getFileInfo()->getStat($fileName);
+            $mime = $this->getFileInfo()->getMimeType($fileName);
+            $image[0]['name'] = $fileName;
+            $image[0]['url'] = $this->_storeManager->getStore()->getBaseUrl()."pub/media/product/index/".$fileName;
+            $image[0]['size'] = isset($stat) ? $stat['size'] : 0;
+            $image[0]['type'] = $mime;
+        }
+        $banner->setImage($image);
+
+        return $banner;
+    }
+
     /**
      * Get data
      *
@@ -76,6 +92,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         $items = $this->collection->getItems();
         /** @var \Magento\Cms\Model\Block $block */
         foreach ($items as $block) {
+            $block = $this->convertValues($block);
             $this->loadedData[$block->getId()] = $block->getData();
         }
 
@@ -88,6 +105,14 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         }
 
         return $this->loadedData;
+    }
+
+    private function getFileInfo()
+    {
+        if ($this->fileInfo === null) {
+            $this->fileInfo = ObjectManager::getInstance()->get(FileInfo::class);
+        }
+        return $this->fileInfo;
     }
     
 }
