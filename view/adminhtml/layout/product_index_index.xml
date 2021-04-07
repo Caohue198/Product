@@ -6,9 +6,6 @@
         </action>
     </referenceBlock>
     <body>
-       <!--  <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" template="AHT_Product::index.phtml"/>
-        </referenceContainer> -->
         <referenceContainer name="content">
             <uiComponent name="aht_product_listing"/>
         </referenceContainer>
