@@ -11,7 +11,7 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
 class Delete extends \AHT\Product\Controller\Adminhtml\Category implements HttpPostActionInterface
 {
     /**
-     * Delete action
+     * Delete action`
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */

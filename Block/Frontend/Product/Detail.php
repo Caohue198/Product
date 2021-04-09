@@ -39,6 +39,6 @@ class Detail extends Template
         $data = $this->_productCollectionFactory->create();
         $result = $data->addFieldToFilter('id',$id);
         $product = $result->getData();
-        return $product[0];
+        return $product;
      }
 }

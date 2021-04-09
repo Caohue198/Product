@@ -13,7 +13,6 @@ use Magento\Framework\Registry;
 use AHT\Product\Api\CategoryRepositoryInterface;
 use AHT\Product\Model\Category;
 use AHT\Product\Model\CategoryFactory;
-//use AHT\Product\Model\Product\ImageUploader;
 
 
 /**
@@ -36,11 +35,6 @@ class Save extends \AHT\Product\Controller\Adminhtml\Category implements HttpPos
      */
     private $blockRepository;
 
-    // /**
-    //  * @var ImageUploader
-    //  */
-    // protected $imageUploader;
-
     /**
      * @param Context $context
      * @param Registry $coreRegistry
@@ -54,14 +48,12 @@ class Save extends \AHT\Product\Controller\Adminhtml\Category implements HttpPos
         DataPersistorInterface $dataPersistor,
         CategoryFactory $blockFactory = null,
         CategoryRepositoryInterface $blockRepository = null
-        //ImageUploader $imageUploader
     ) {
         $this->dataPersistor = $dataPersistor;
         $this->blockFactory = $blockFactory
             ?: \Magento\Framework\App\ObjectManager::getInstance()->get(CategoryFactory::class);
         $this->blockRepository = $blockRepository
             ?: \Magento\Framework\App\ObjectManager::getInstance()->get(CategoryRepositoryInterface::class);
-        //$this->imageUploader = $imageUploader;
         parent::__construct($context, $coreRegistry);  
     }
 
@@ -79,9 +71,6 @@ class Save extends \AHT\Product\Controller\Adminhtml\Category implements HttpPos
         $data = $this->getRequest()->getPostValue();
         
         if ($data) {
-            /*if (isset($data['is_active']) && $data['is_active'] === 'true') {
-                $data['is_active'] = Block::STATUS_ENABLED;
-            }*/
             
             if (empty($data['id'])) {
                 $data['id'] = null;
@@ -98,12 +87,6 @@ class Save extends \AHT\Product\Controller\Adminhtml\Category implements HttpPos
                     return $resultRedirect->setPath('*/*/');
                 }
             }
-            // if (isset($data['image'][0]['name'])) {
-            //     $imageName = $data['image'][0]['name'];
-            // }else{
-            //     $imageName = '';
-            // }
-            // $data['images'] = $imageName;
             $model->setData($data);      
 
             try {
@@ -111,9 +94,6 @@ class Save extends \AHT\Product\Controller\Adminhtml\Category implements HttpPos
                 $model->save();
                 $this->messageManager->addSuccessMessage(__('You saved the category.'));
                 $this->dataPersistor->clear('category');
-                // if ($imageName){
-                //     $this->imageUploader->moveFileFromTmp($imageName);
-                // }
                 return $this->processBlockReturn($model, $data, $resultRedirect);
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());

@@ -87,7 +87,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     /**
      * Add block title to error message
      *
-     * @param ProductInterface $category
+     * @param CategoryInterface $category
      * @param string $errorText
      * @return string
      */
