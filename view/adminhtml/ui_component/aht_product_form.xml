@@ -65,7 +65,7 @@
                     <item name="source" xsi:type="string">title</item>
                     <item name="sortOrder" xsi:type="number">1</item>
                     <item name="dataScope" xsi:type="string">title</item>
-                    <item name="notice" xsi:type="string" translate="true">Enter title here</item>
+                    <item name="notice" xsi:type="string" translate="true">Enter name product here</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
                     </item>
@@ -73,7 +73,47 @@
             </argument>
         </field>
 
-        <field name="image" sortOrder="7" formElement="imageUploader">
+        <field name="sku" sortOrder="2">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">SKu</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">product</item>
+                    <item name="dataScope" xsi:type="string">sku</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="price" sortOrder="3">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Price</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">price</item>
+                    <item name="dataScope" xsi:type="string">price</item>
+                </item>
+            </argument>
+        </field>
+
+         <field name="categoryid" sortOrder="4" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Category</label>
+                <dataScope>categoryid</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="AHT\Product\Ui\Component\Category\Column\ListOptionForm" />
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="image" sortOrder="5" formElement="imageUploader">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">index</item>
@@ -102,57 +142,32 @@
                 </imageUploader>
             </formElements>
         </field>
-        <field name="categoryid" sortOrder="3" formElement="select">
+
+        <field name="description" template="ui/form/field" sortOrder="50" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="height" xsi:type="string">200px</item>
+                        <item name="add_variables" xsi:type="boolean">false</item>
+                        <item name="add_widgets" xsi:type="boolean">false</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="source" xsi:type="string">category</item>
+                </item>
+            </argument>
             <settings>
-                <dataType>text</dataType>
-                <label translate="true">Category</label>
-                <dataScope>categoryid</dataScope>
+                <label translate="true">Description</label>
+                <dataScope>description</dataScope>
             </settings>
             <formElements>
-                <select>
+                <wysiwyg class="Magento\Catalog\Ui\Component\Category\Form\Element\Wysiwyg">
                     <settings>
-                        <options class="AHT\Product\Ui\Component\Category\Column\ListOptionForm" />
-                        <caption translate="true">-- Please Select --</caption>
+                        <rows>8</rows>
+                        <wysiwyg>true</wysiwyg>
                     </settings>
-                </select>
+                </wysiwyg>
             </formElements>
-        </field>
-
-        <field name="description" sortOrder="4">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Description</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
-                    <item name="source" xsi:type="string">description</item>
-                    <item name="sortOrder" xsi:type="number">3</item>
-                    <item name="dataScope" xsi:type="string">description</item>
-                </item>
-            </argument>
-        </field>
-        <field name="price" sortOrder="5">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Price</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
-                    <item name="source" xsi:type="string">price</item>
-                    <item name="sortOrder" xsi:type="number">4</item>
-                    <item name="dataScope" xsi:type="string">price</item>
-                </item>
-            </argument>
-        </field>
-        <field name="content" sortOrder="6">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Content</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
-                    <item name="source" xsi:type="string">product</item>
-                    <item name="sortOrder" xsi:type="number">5</item>
-                    <item name="dataScope" xsi:type="string">content</item>
-                </item>
-            </argument>
         </field>
     </fieldset>
 </form>

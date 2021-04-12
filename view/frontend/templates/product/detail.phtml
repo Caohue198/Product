@@ -2,11 +2,22 @@
     $item = $block->getEditRecord();
     $urlImage = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
     $image = $urlImage . 'product/index/' . $item[0]['images'];
+    //var_dump($item);
 ?>
 <div class="product-detail">
     <h2><?php echo $item[0]['title'] ?></h2>
     <img src="<?php echo $image?>" width="240" alt="product">
     <p>Price:<?php echo $item[0]['price'] ?> </p>
-    <span>Content:<?php echo $item[0]['content'] ?><br/></span>
-   
+    <div class="product-description">
+        <?php
+        /*Gan noi dung content*/
+        $content = $item[0]['description'];
+        /*Khoi tao ham co san trong magento */
+        $om = \Magento\Framework\App\ObjectManager::getInstance();
+        /*Goi den function de lay url-media cho cac the co 'media url'*/
+        $filterManager = $om->get('Magento\Cms\Model\Template\FilterProvider')->getPageFilter()->filter($content);
+        /*hien thi lai noi dung sau khi thay doi media url*/
+        echo $filterManager;
+        ?>
+    </div>
 </div>

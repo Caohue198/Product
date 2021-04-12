@@ -16,6 +16,21 @@
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
                 </field>
             </group>
+            <group id="product-slide" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Product Slider</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product Slide</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+            </group>
+            <group id="product-number" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Product Number</label>
+                <field id="number" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product Number</label>
+                    <comment>Must be in the allowed values list.</comment>
+                    <validate>validate-number required-entry</validate>
+                </field>
+            </group>
         </section>
     </system>
 </config>

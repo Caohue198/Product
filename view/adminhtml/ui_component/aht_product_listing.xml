@@ -130,14 +130,14 @@
                 <resizeDefaultWidth>55</resizeDefaultWidth>
             </settings>
         </selectionsColumn>
-        <column name="id">
+        <column name="id" sortOrder="1">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">ID</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
-         <column name="title">
+         <column name="title" sortOrder="2">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -147,50 +147,20 @@
                             <item name="required-entry" xsi:type="boolean">true</item>
                         </item>
                     </item>
-                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="label" xsi:type="string" translate="true">Product Name</item>
                 </item>
             </argument>
         </column>
-        <column name="image" class="AHT\Product\Ui\Component\Listing\Column\Image">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="sortOrder" xsi:type="number">3</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
-                    <item name="sortable" xsi:type="boolean">false</item>
-                    <item name="has_preview" xsi:type="string">1</item>
-                    <item name="label" xsi:type="string" translate="true">Images</item>
-                </item>
-            </argument>
-        </column>
-        <column name="name">
+        <column name="name" sortOrder="3">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                   <!--  <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item> -->
-                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="label" xsi:type="string" translate="true">Category</item>
                 </item>
             </argument>
         </column>
-         <column name="description">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
-                    <item name="label" xsi:type="string" translate="true">Description</item>
-                </item>
-            </argument>
-        </column>
-         <column name="price">
+
+         <column name="price" sortOrder="4">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -204,17 +174,14 @@
                 </item>
             </argument>
         </column>
-         <column name="content">
+
+        <column name="image" class="AHT\Product\Ui\Component\Listing\Column\Image" sortOrder="5">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
-                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="has_preview" xsi:type="string">1</item>
+                    <item name="label" xsi:type="string" translate="true">Images</item>
                 </item>
             </argument>
         </column>

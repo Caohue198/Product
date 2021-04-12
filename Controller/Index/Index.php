@@ -6,9 +6,11 @@ use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Customer\Model\SessionFactory;
 
+
 class Index extends \Magento\Framework\App\Action\Action
 {
     protected $_resultPageFactory;
+    
 
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
@@ -23,4 +25,5 @@ class Index extends \Magento\Framework\App\Action\Action
         $resultPage = $this->_resultPageFactory->create();
         return $resultPage;
     }
+
 }
