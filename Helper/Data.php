@@ -7,24 +7,22 @@ use Magento\Store\Model\ScopeInterface;
 class Data extends AbstractHelper
 {
 
-	const XML_PATH_PRODUCT = 'product/';
-
-	public function getConfigValue($field, $storeId = null)
+	public function getConfigValue($field)
 	{
 		return $this->scopeConfig->getValue('product/product/'.$field, ScopeInterface::SCOPE_STORE);
 	}
 
-    public function getConfigValueSlide($field, $storeId = null)
+    public function getConfigValueSlide($field)
 	{
 		return $this->scopeConfig->getValue('product/product-slide/'.$field, ScopeInterface::SCOPE_STORE);
 	}
 
-	public function getConfigValueNumber($field, $storeId = null)
+	public function getConfigValueNumber($field)
 	{
 		return $this->scopeConfig->getValue('product/product-number/'.$field, ScopeInterface::SCOPE_STORE);
 	}
 
-    public function getConfigValueNumbeSlide($field, $storeId = null)
+    public function getConfigValueNumbeSlide($field)
 	{
 		return $this->scopeConfig->getValue('product/product-number/'.$field, ScopeInterface::SCOPE_STORE);
 	}
