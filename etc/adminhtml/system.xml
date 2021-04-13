@@ -25,8 +25,13 @@
             </group>
             <group id="product-number" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Product Number</label>
-                <field id="number" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Product Number</label>
+                <field id="number-page" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product Number Per Page</label>
+                    <comment>Must be in the allowed values list.</comment>
+                    <validate>validate-number required-entry</validate>
+                </field>
+                <field id="number-slide" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product Number Per Sile</label>
                     <comment>Must be in the allowed values list.</comment>
                     <validate>validate-number required-entry</validate>
                 </field>

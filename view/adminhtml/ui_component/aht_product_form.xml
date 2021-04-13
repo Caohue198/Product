@@ -147,7 +147,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="wysiwygConfigData" xsi:type="array">
-                        <item name="height" xsi:type="string">200px</item>
+                        <item name="height" xsi:type="string">300px</item>
                         <item name="add_variables" xsi:type="boolean">false</item>
                         <item name="add_widgets" xsi:type="boolean">false</item>
                         <item name="add_images" xsi:type="boolean">true</item>

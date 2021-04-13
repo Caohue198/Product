@@ -56,7 +56,14 @@ class Index extends Template implements BlockInterface
 
     public function getProductNumber()
     {
-       $helper = $this->helper->getConfigValueNumber('number');
+       $helper = $this->helper->getConfigValueNumber('number-page');
+        return $helper;
+        
+    }
+
+    public function getProductNumberSlide()
+    {
+       $helper = $this->helper->getConfigValueNumbeSlide('number-slide');
         return $helper;
         
     }
