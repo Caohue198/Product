@@ -101,4 +101,12 @@ class Product extends \Magento\Framework\Model\AbstractModel implements Identity
     {
         $this->setData('content', $content);
     } 
+    public function getStatus()
+    {
+        return $this->getData('status');
+    }
+    public function setStatus($status)
+    {
+        $this->setData('status', $status);
+    } 
 }

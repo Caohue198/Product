@@ -90,7 +90,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        /** @var \Magento\Cms\Model\Block $block */
+        /** @var \AHT\Product\Model\Product $block */
         foreach ($items as $block) {
             $block = $this->convertValues($block);
             $this->loadedData[$block->getId()] = $block->getData();

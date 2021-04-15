@@ -27,4 +27,10 @@ class Data extends AbstractHelper
 		return $this->scopeConfig->getValue('product/product-number/'.$field, ScopeInterface::SCOPE_STORE);
 	}
 
+	public function getConfigValueCategory($field)
+	{
+		return $this->scopeConfig->getValue('product/category/'.$field, ScopeInterface::SCOPE_STORE);
+	}
+
+
 }

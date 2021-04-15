@@ -53,9 +53,7 @@ class Image extends \Magento\Ui\Component\Listing\Columns\Column
                 $product= new \Magento\Framework\DataObject($item);
                 $item[$fieldName . '_src'] = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA)."product/index/".$product['images'];
                 $item[$fieldName . '_orig_src'] = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA)."product/index/".$product['images'];
-                $item[$fieldName . '_link'] = $this->urlBuilder->getUrl("portfolio/index/edit",
-                    ['id' => $product['id']]
-                );
+                $item[$fieldName . '_link'] = $this->urlBuilder->getUrl("product/index/edit",['id' => $product['id']]);
                 $item[$fieldName . '_alt'] = $product['name'];
             }
         }
