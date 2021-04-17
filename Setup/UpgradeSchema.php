@@ -80,7 +80,41 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
             );
         } 
+
+        if (version_compare($context->getVersion(), '1.0.7', '<')) {
+
+            $table = $setup->getTable('aht_category');
+    
+            $setup->getConnection()
+                ->addIndex(
+                    $table,
+                    $setup->getIdxName(
+                        $table,
+                        ['name'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['name'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                );
+        }
        
+        if (version_compare($context->getVersion(), '1.0.11', '<')) {
+
+            $table = $setup->getTable('aht_product');
+    
+            $setup->getConnection()
+                ->addIndex(
+                    $table,
+                    $setup->getIdxName(
+                        $table,
+                        ['title', 'description', 'price', 'sku'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['title', 'description', 'price', 'sku'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                );
+        }
+        
         $setup->endSetup();
     }
 
