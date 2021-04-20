@@ -3,9 +3,24 @@ namespace AHT\Product\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Data extends AbstractHelper
 {
+	protected $product;
+	protected $scopeConfig;
+	public function __construct(\AHT\Product\Model\ResourceModel\Product\Grid\CollectionFactory $product, ScopeConfigInterface $scopeConfig)
+	{
+		$this->product = $product;
+		$this->scopeConfig = $scopeConfig;
+	}
+
+	public function getProductByCategory($id) {
+		$product = $this->product->create();
+		$result = $product->addFieldToFilter('categoryid',$id);
+		$items = $result->getData();
+		return $items;
+	}
 
 	public function getConfigValue($field)
 	{

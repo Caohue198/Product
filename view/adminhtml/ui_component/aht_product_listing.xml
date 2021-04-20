@@ -183,14 +183,14 @@
                 </item>
             </argument>
         </column>
-        <column name="description" sortOrder="10">
+        <!-- <column name="description" sortOrder="10">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Description</item>
                 </item>
             </argument>
-        </column>
+        </column> -->
 
         <column name="price" sortOrder="4">
             <argument name="data" xsi:type="array">

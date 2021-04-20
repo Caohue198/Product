@@ -116,17 +116,28 @@ class ProductRepository implements ProductRepositoryInterface
      */
     public function createPost(ProductInterface $post)
     {
-        try {
-            $this->resource->save($post);
-        } catch (\Exception $exception) {
-            throw new CouldNotSaveException(
-                __('Could not save the Post: %1', $exception->getMessage()),
-                $exception
-            );
+        
+        $status = '';
+        $mes = '';
+        if(empty($post->getContent())){
+            $status = 400;
+            $mes = 'error';
+        }
+        else {
+            try {
+                $this->resource->save($post);
+                $status = 200;
+                $mes = $post->getData();
+            } catch (\Exception $exception) {
+                throw new CouldNotSaveException(
+                    __('Could not save the Post: %1', $exception->getMessage()),
+                    $exception
+                );
+            }
         }
         return json_encode(array(
-            "status" => 200,
-            "message" => $post->getData()
+            "status" => $status,
+            "message" => $mes
         ));
         
     }
